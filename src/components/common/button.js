@@ -10,8 +10,8 @@ import {
 // Create a react component
 module.exports = React.createClass({
     render: function() {
-        return <TouchableHighlight style:{styles.button} underlayColor={'gray'} onPress={this.props.onPress}>
-            <Text style:{styles.buttonText}>{this.props.text}</Text>
+        return <TouchableHighlight style={styles.button} underlayColor={'gray'} onPress={this.props.onPress}>
+            <Text style={styles.buttonText}>{this.props.text}</Text>
         </TouchableHighlight>
     }
 });

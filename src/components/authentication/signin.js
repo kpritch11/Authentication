@@ -1,5 +1,6 @@
 // Import the code we need
 import React from 'react';
+import Button from '../common/button' // .. is up one folder then into common
 
 import {
     StyleSheet,
@@ -10,14 +11,33 @@ import {
 
 // Create a react component
 module.exports = React.createClass({
+    getInitialState: function() {
+        return {
+            username: '',
+            password: ''
+        };
+    },
     render: function() {
         return <View style={styles.container}>
             <Text>Sign In</Text>
             <Text style={styles.label}>Username:</Text>
-            <TextInput style={styles.input}></TextInput>
+            <TextInput
+                onChangeText={(text) => this.setState({username: text})}
+                style={styles.input}
+                value={this.state.username}>
+            </TextInput>
             <Text style={styles.label}>Password:</Text>
-            <TextInput secureTextEntry={true} style={styles.input}></TextInput>
+            <TextInput
+                secureTextEntry={true}
+                onChangeText={(text) => this.setState({password: text})}
+                style={styles.input}
+                value={this.state.password}>
+            </TextInput>
+            <Button text={'Sign In'} onPress={this.onPress}></Button>
         </View>
+    },
+    onPress: function() {
+        console.log('signInPressed')
     }
 });
 
