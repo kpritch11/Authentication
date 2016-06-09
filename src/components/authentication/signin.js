@@ -1,10 +1,10 @@
 // Import the code we need
 import React from 'react';
-import SignIn from './components/authentication/signin';
 
 import {
     StyleSheet,
     Text,
+    TextInput,
     View
 } from 'react-native';
 
@@ -12,12 +12,11 @@ import {
 module.exports = React.createClass({
     render: function() {
         return <View style={styles.container}>
-            <SignIn></SignIn>
+            <Text>Sign In</Text>
         </View>
     }
 });
 
-// Style the react component
 var styles = StyleSheet.create({
     container: {
         flex: 1,
