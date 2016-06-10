@@ -10,6 +10,10 @@ import {
 
 // Create a react component
 module.exports = React.createClass({
+    componentWillMount: function() {
+        Parse.initialize('myAppId', 'unused');
+        Parse.serverURL = 'https://kpritch-authentication.herokuapp.com/parse';
+    },
     render: function() {
         return <View style={styles.container}>
             <SignIn></SignIn>
