@@ -1,6 +1,7 @@
 // Import the code we need
 import React from 'react';
 import Button from '../common/button' // .. is up one folder then into common
+import Parse from 'parse/react-native';
 
 import {
     StyleSheet,
@@ -37,7 +38,10 @@ module.exports = React.createClass({
         </View>
     },
     onPress: function() {
-        console.log('signInPressed')
+        Parse.User.logIn(this.state.username, this.state.password, {
+            success: (user) => { console.log(user); },
+            error: (data, error) => { console.log(data, error); }
+        });
     }
 });
 

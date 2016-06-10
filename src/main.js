@@ -1,6 +1,7 @@
 // Import the code we need
 import React from 'react';
 import SignIn from './components/authentication/signin';
+import Parse from 'parse/react-native';
 
 import {
     StyleSheet,
