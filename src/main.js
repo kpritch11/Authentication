@@ -12,7 +12,7 @@ import {
 // Create a react component
 module.exports = React.createClass({
     componentWillMount: function() {
-        Parse.initialize('myAppId', 'unused');
+        Parse.initialize('authentication830472991', 'authenticationKLnFEon5E8t20c7');
         Parse.serverURL = 'https://kpritch-authentication.herokuapp.com/parse';
     },
     render: function() {
