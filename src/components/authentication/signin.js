@@ -24,6 +24,7 @@ module.exports = React.createClass({
             <Text>Sign In</Text>
             <Text style={styles.label}>Username:</Text>
             <TextInput
+                autoCapitalize={'none'}
                 onChangeText={(text) => this.setState({username: text})}
                 style={styles.input}
                 value={this.state.username}>
