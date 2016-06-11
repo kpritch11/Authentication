@@ -37,14 +37,18 @@ module.exports = React.createClass({
                 value={this.state.password}>
             </TextInput>
             <Text style={styles.label}>{this.state.errorMessage}</Text>
-            <Button text={'Sign In'} onPress={this.onPress}></Button>
+            <Button text={'Sign In'} onPress={this.signInPressed}></Button>
+            <Button text={'Don\'t Have an Account? Sign Up'} onPress={this.signUpPressed}></Button>
         </View>
     },
-    onPress: function() {
+    signInPressed: function() {
         Parse.User.logIn(this.state.username, this.state.password, {
             success: (user) => { console.log(user); },
             error: (data, error) => { this.setState({ errorMessage: error.message }); }
         });
+    },
+    signUpPressed: function() {
+        this.props.navigator.push({name: 'signUp'})
     }
 });
 
