@@ -1,6 +1,7 @@
 // Import the code we need
 import React from 'react';
 import Button from '../common/button';
+import Parse from 'parse/react-native';
 
 import {
     StyleSheet,
@@ -15,7 +16,8 @@ module.exports = React.createClass({
         return {
             username: '',
             password: '',
-            passwordConfirmation: ''
+            passwordConfirmation: '',
+            errorMessage: ''
         };
     },
     render: function() {
@@ -23,24 +25,41 @@ module.exports = React.createClass({
             <Text>Sign Up</Text>
             <Text style={styles.label}>Username:</Text>
             <TextInput
+                autoCapitalize={'none'}
                 value={this.state.username}
                 onChangeText={(text) => this.setState({username: text})}
                 style={styles.input}>
             </TextInput>
             <Text style={styles.label}>Password:</Text>
             <TextInput
+                secureTextEntry={true}
                 value={this.state.password}
                 onChangeText={(text) => this.setState({password: text})}
                 style={styles.input}>
             </TextInput>
             <Text style={styles.label}>Confirm Password:</Text>
             <TextInput
+                secureTextEntry={true}
                 value={this.state.passwordConfirmation}
                 onChangeText={(text) => this.setState({passwordConfirmation: text})}
                 style={styles.input}>
             </TextInput>
+            <Text style={styles.label}>{this.state.errorMessage}</Text>
+            <Button text={'Sign Up'} onPress={this.signUpPressed}></Button>
             <Button text={'I Already Have an Account'} onPress={this.signInPressed}></Button>
         </View>
+    },
+    signUpPressed: function() {
+        if (this.state.password !== this.state.passwordConfirmation) {
+            return this.setState({errorMessage: 'Your passwords do not match'});
+        }
+        var user = new Parse.User();
+        user.set('username', this.state.username);
+        user.set('password', this.state.password);
+        user.signUp(null, {
+            success: (user) => { console.log(user); },
+            error: (user, error) => { console.log(error); }
+        });
     },
     signInPressed: function() {
         this.props.navigator.pop();
