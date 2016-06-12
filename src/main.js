@@ -1,8 +1,9 @@
 // Import the code we need
 import React from 'react';
-import SignIn from './components/authentication/signin';
-import SignUp from './components/authentication/signup'
 import Parse from 'parse/react-native';
+import SignIn from './components/authentication/signin';
+import SignUp from './components/authentication/signup';
+import Tweets from './components/tweets/tweets';
 
 import {
     Navigator,
@@ -11,7 +12,8 @@ import {
 
 var ROUTES = {
     signIn: SignIn,
-    signUp: SignUp
+    signUp: SignUp,
+    tweets: Tweets
 };
 
 // Create a react component
