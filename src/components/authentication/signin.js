@@ -48,7 +48,7 @@ module.exports = React.createClass({
         });
     },
     signUpPressed: function() {
-        this.props.navigator.push({name: 'signUp'})
+        this.props.navigator.push({name: 'signUp'});
     }
 });
 
