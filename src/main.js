@@ -36,7 +36,6 @@ module.exports = React.createClass({
     }
 });
 
-
 // Style the react component
 var styles = StyleSheet.create({
     container: {
